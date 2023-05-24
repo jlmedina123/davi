@@ -15,9 +15,11 @@ while len(tablas.keys()) > 0:
     tabla = tablas.keys()[i]
     j = random.randrange(0, len(tablas[tabla]))
     digito = tablas[tabla][j]
-    print "%d * %d = " % (tabla, digito),
 
-    res = input()
+    res = ""
+    while not res:
+        print "%d * %d = " % (tabla, digito),
+        res = input()
     if (res == tabla * digito):
         print "Muy bien, Davi!"
         tablas[tabla].remove(digito)
@@ -25,9 +27,9 @@ while len(tablas.keys()) > 0:
             del tablas[tabla]
     else:
         print "En verdad es : %d" % (tabla * digito)
-        errores =+ 1
+        errores += 1
 
 fin = time.time()
 print "Enhorabuena Davi! Has terminado todas las tablas!!"
-print "Y en solo %d segundos con %d errors! Wow!" % ((fin-principio), errores)
+print "Y en solo %d segundos con %d errores! Wow!" % ((fin-principio), errores)
 
